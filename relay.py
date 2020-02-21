@@ -1,4 +1,4 @@
-from flask import FlaskAPI, request
+from flask import Flask, request
 from flask_cors import CORS
 import json
 import time
@@ -41,4 +41,4 @@ def index():
 
 if __name__ == '__main__':
     app.debug = False
-    app.run(host='0.0.0.0', port=5000 ,debug=True) 
+    app.run(host='0.0.0.0', port=5000 ,debug=False)
