@@ -1,0 +1,8 @@
+{
+    "machine_id": "cde5e279-07d7-4e73-a015-08d77818f39c",
+    "machine": "Relay-Controller",
+    "state": "",
+    "time_format": "%Y-%m-%d %H:%M:%S",
+    "RELAY_PIN": 21,
+    "RELAY_SWITCH_TIME": 1
+}
