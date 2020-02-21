@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import FlaskAPI, request
 from flask_cors import CORS
 import json
 import time
@@ -31,7 +31,7 @@ def index():
             ip = request.remote_addr
 
         f = open('log.txt','a')
-        log = 'machine: {0},message:{1},ip:{2},time:{3}'.format(machine_id,msg,ip,DateNow)
+        log = 'machine: {0},message:{1},ip:{2},time:{3}\r\n'.format(machine_id,msg,ip,DateNow)
         f.write(log )
 
         return  json.dumps({
@@ -41,4 +41,4 @@ def index():
 
 if __name__ == '__main__':
     app.debug = False
-    app.run(host='0.0.0.0', port=5000 ,debug=True)  #host=0.0.0.0就是開放所有人連線,127.0.0.1就是只接受本機連線
+    app.run(host='0.0.0.0', port=5000 ,debug=True) 
