@@ -31,7 +31,7 @@ def index():
             ip = request.remote_addr
 
         f = open('log.txt','a')
-        log = f'machine: {machine_id},message:{msg},ip:{ip},time:{DateNow}'
+        log = 'machine: {0},message:{1},ip:{2},time:{3}'.format(machine_id,msg,ip,DateNow)
         f.write(log )
 
         return  json.dumps({
