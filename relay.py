@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 import json
+import datetime
 import time
 import RPi.GPIO as GPIO
 
@@ -16,7 +17,7 @@ def index():
         relay_switch_time = config["RELAY_SWITCH_TIME"]
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(relay_pin, GPIO.OUT)
-        DateNow = time.localtime()
+        DateNow = datetime.datetime.now()
         try:
             GPIO.output(relay_pin,  GPIO.HIGH)   # Turn motor on
             time.sleep(relay_switch_time)
