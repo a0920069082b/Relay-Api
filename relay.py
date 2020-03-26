@@ -3,14 +3,10 @@ from flask_cors import CORS
 import json
 import datetime
 import time
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 app = Flask(__name__)
 CORS(app)
-
-def FirstRun(self):
-    print('123')
-    # return '123'
 
 @app.route("/api/RelayControll/On", methods=["GET"])
 def RelayOn():
