@@ -3,10 +3,14 @@ from flask_cors import CORS
 import json
 import datetime
 import time
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 
 app = Flask(__name__)
 CORS(app)
+
+def FirstRun(self):
+    print('123')
+    # return '123'
 
 @app.route("/api/RelayControll/On", methods=["GET"])
 def RelayOn():
@@ -19,7 +23,7 @@ def RelayOn():
         GPIO.setup(relay_pin, GPIO.OUT)
         DateNow = datetime.datetime.now()
         try:
-            GPIO.output(relay_pin,  GPIO.HIGH)   # Turn motor on
+            GPIO.output(relay_pin,  GPIO.LOW)   # Turn motor on
             msg = "Call Relay On success"
         except Exception as e:
             msg = e
@@ -49,7 +53,7 @@ def RelayOff():
         GPIO.setup(relay_pin, GPIO.OUT)
         DateNow = datetime.datetime.now()
         try:
-            GPIO.output(relay_pin, GPIO.LOW)  # Turn motor
+            GPIO.output(relay_pin, GPIO.HIGH)  # Turn motor
             msg = "Call Relay Off success"
         except Exception as e:
             msg = e
@@ -70,4 +74,5 @@ def RelayOff():
 
 if __name__ == '__main__':
     app.debug = False
-    app.run(host='0.0.0.0', port=5000 ,debug=False)
+    app.run(host='127.0.0.1', port=5000 ,debug=True)
+    RelayOn()
