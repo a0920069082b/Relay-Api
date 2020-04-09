@@ -63,7 +63,7 @@ class RelayAPI():
                     "machine": machine_id,
                     "msg": msg
             })
- @app.route("/api/RelayControll/Off", methods=["GET"])
+   @app.route("/api/RelayControll/Off", methods=["GET"])
     def RelayOff():
         with open('config.json') as json_file:
             config = json.load(json_file)
